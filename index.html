@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatish Durga | Data Scientist & AI Engineer</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Yatish Durga — Data Scientist & AI Engineer with 4+ years of experience building intelligent data pipelines, ML systems, and GenAI solutions. Open to full-time opportunities.">
+    <meta name="keywords" content="Yatish Durga, Data Scientist, AI Engineer, Data Engineer, Machine Learning, ETL, RAG, Python, SQL, LLM, GenAI">
+    <meta name="author" content="Yatish Durga">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (LinkedIn, Facebook previews) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yatish Durga | Data Scientist & AI Engineer">
+    <meta property="og:description" content="Building intelligent data pipelines, ML systems, and AI-driven solutions. 4+ years experience · Open to opportunities.">
+    <meta property="og:url" content="https://yatishdurga.com/">
+    <meta property="og:image" content="Images/graduation.jpeg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yatish Durga | Data Scientist & AI Engineer">
+    <meta name="twitter:description" content="Building intelligent data pipelines, ML systems, and AI-driven solutions.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230ea5e9'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='13' font-weight='900' font-family='system-ui,sans-serif'>YD</text></svg>">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- Page Loader -->
+<div id="page-loader">
+    <div class="loader-inner">
+        <div class="loader-ring"></div>
+        <span class="loader-initials">YD</span>
+    </div>
+</div>
+
+<canvas id="particles-canvas"></canvas>
+<div id="scroll-progress"></div>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-profile">
+        <div class="sidebar-initials">YD</div>
+        <h2 class="sidebar-name">Yatish Durga</h2>
+        <p class="sidebar-title">Data Scientist</p>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home"           class="nav-link active"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+        <li><a href="learning.html"   class="nav-link nav-link-learning"><i class="fa-solid fa-fire"></i><span>Learning</span><span class="nav-live-dot"></span></a></li>
+        <li><a href="#about"          class="nav-link"><i class="fa-solid fa-user"></i><span>About</span></a></li>
+        <li><a href="#skills"         class="nav-link"><i class="fa-solid fa-code"></i><span>Skills</span></a></li>
+        <li><a href="#experience"     class="nav-link"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a></li>
+        <li><a href="#education"      class="nav-link"><i class="fa-solid fa-graduation-cap"></i><span>Education</span></a></li>
+        <li><a href="#projects"       class="nav-link"><i class="fa-solid fa-diagram-project"></i><span>Projects</span></a></li>
+        <li><a href="#certifications" class="nav-link"><i class="fa-solid fa-certificate"></i><span>Certifications</span></a></li>
+        <li><a href="#blogs"          class="nav-link"><i class="fa-brands fa-medium"></i><span>Blogs</span></a></li>
+        <li><a href="#contact"        class="nav-link"><i class="fa-solid fa-envelope"></i><span>Contact</span></a></li>
+    </ul>
+
+    <div class="sidebar-socials">
+        <a href="https://www.linkedin.com/in/yatish-durga-22b424197/" target="_blank" class="social-btn" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/yatishdurga" target="_blank" class="social-btn" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="mailto:yatishdurgaappanapalli@gmail.com" class="social-btn" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    </div>
+</nav>
+
+<!-- Mobile toggle -->
+<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+</button>
+
+<!-- Main -->
+<main class="main-content" id="mainContent">
+
+    <!-- HOME -->
+    <section id="home" class="section home-section">
+        <div class="home-content">
+            <div class="home-text">
+                <div class="availability-badge">
+                    <span class="avail-dot"></span>
+                    Available for full-time roles
+                </div>
+                <p class="greeting">👋 Hello, I'm</p>
+                <h1 class="hero-name">Yatish Durga</h1>
+                <div class="hero-roles">
+                    <span class="role-static">I'm a </span>
+                    <span id="typewriter" class="role-typewriter"></span>
+                </div>
+                <p class="hero-bio">Building intelligent data pipelines and ML systems. Passionate about turning raw data into actionable insights and AI-driven solutions.</p>
+                <div class="hero-actions">
+                    <a href="Images/Yatish Durga A .pdf" class="btn btn-primary" download>
+                        <i class="fa-solid fa-download"></i> Download CV
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fa-solid fa-paper-plane"></i> Contact Me
+                    </a>
+                </div>
+                <div class="hero-companies">
+                    <p class="companies-label">Previously worked with</p>
+                    <div class="companies-row">
+                        <a href="https://gavstech.com/" target="_blank" class="company-logo-link">
+                            <img src="Images/gavs_logo.jpeg" alt="GAVS Technology" class="company-logo">
+                        </a>
+                        <a href="#" class="company-logo-link">
+                            <img src="Images/tensile_tech_official_logo.jpeg" alt="Tensile Tech" class="company-logo">
+                        </a>
+                        <a href="https://www.perplexity.ai/" target="_blank" class="company-logo-link">
+                            <img src="Images/Perplexity-Logo.png" alt="Perplexity AI" class="company-logo">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Open Source Contribution -->
+                <div class="oss-highlight">
+                    <div class="oss-label">
+                        <i class="fa-solid fa-code-branch"></i>
+                        <span>Open Source Contributor</span>
+                    </div>
+                    <a href="https://github.com/i-am-bee/beeai-framework" target="_blank" class="oss-card">
+                        <div class="oss-logo-wrap">
+                            <i class="fa-brands fa-github oss-gh-icon"></i>
+                        </div>
+                        <div class="oss-info">
+                            <p class="oss-org">IBM &bull; BeeAI Framework</p>
+                            <p class="oss-desc">Open-source AI agents framework — contributed to production codebase</p>
+                        </div>
+                        <div class="oss-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="home-visual">
+                <div class="profile-photo-wrap">
+                    <div class="photo-ring photo-ring-1"></div>
+                    <div class="photo-ring photo-ring-2"></div>
+                    <!-- CSS animated boy avatar -->
+                    <div class="avatar-wrap">
+                        <svg class="boy-avatar" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Body / torso -->
+                            <rect x="58" y="150" width="84" height="90" rx="20" fill="#1a6060"/>
+                            <!-- Collar -->
+                            <polygon points="100,158 82,150 100,175 118,150" fill="#7ecdc7" opacity="0.6"/>
+                            <!-- Neck -->
+                            <rect x="88" y="134" width="24" height="22" rx="8" fill="#f5c9a0"/>
+                            <!-- Head -->
+                            <ellipse cx="100" cy="112" rx="44" ry="46" fill="#f5c9a0"/>
+                            <!-- Hair -->
+                            <ellipse cx="100" cy="72" rx="44" ry="26" fill="#2d1a0e"/>
+                            <ellipse cx="60" cy="92" rx="14" ry="22" fill="#2d1a0e"/>
+                            <ellipse cx="140" cy="92" rx="14" ry="22" fill="#2d1a0e"/>
+                            <ellipse cx="100" cy="68" rx="36" ry="18" fill="#3d2410"/>
+                            <!-- Ears -->
+                            <ellipse cx="57" cy="114" rx="9" ry="12" fill="#f5c9a0"/>
+                            <ellipse cx="143" cy="114" rx="9" ry="12" fill="#f5c9a0"/>
+                            <!-- Eyes -->
+                            <ellipse cx="84" cy="110" rx="9" ry="10" fill="white"/>
+                            <ellipse cx="116" cy="110" rx="9" ry="10" fill="white"/>
+                            <circle cx="86" cy="112" r="5.5" fill="#2d1a0e" class="avatar-eye-l"/>
+                            <circle cx="118" cy="112" r="5.5" fill="#2d1a0e" class="avatar-eye-r"/>
+                            <!-- Eye shine -->
+                            <circle cx="88" cy="110" r="1.8" fill="white"/>
+                            <circle cx="120" cy="110" r="1.8" fill="white"/>
+                            <!-- Eyebrows -->
+                            <path d="M75 99 Q84 94 93 99" stroke="#2d1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M107 99 Q116 94 125 99" stroke="#2d1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <!-- Nose -->
+                            <ellipse cx="100" cy="122" rx="4" ry="3" fill="#e8b08a" opacity="0.7"/>
+                            <!-- Smile -->
+                            <path d="M87 133 Q100 143 113 133" stroke="#c0785a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <!-- Arms -->
+                            <rect x="22" y="152" width="36" height="18" rx="9" fill="#1a6060" class="avatar-arm-l"/>
+                            <rect x="142" y="152" width="36" height="18" rx="9" fill="#1a6060" class="avatar-arm-r"/>
+                            <!-- Hands -->
+                            <ellipse cx="32" cy="176" rx="12" ry="10" fill="#f5c9a0" class="avatar-hand-l"/>
+                            <ellipse cx="168" cy="176" rx="12" ry="10" fill="#f5c9a0" class="avatar-hand-r"/>
+                            <!-- Laptop base -->
+                            <rect x="44" y="190" width="112" height="68" rx="8" fill="#0e2a2a"/>
+                            <rect x="48" y="194" width="104" height="58" rx="6" fill="#0f3535"/>
+                            <!-- Code lines on screen -->
+                            <rect x="56" y="202" width="60" height="4" rx="2" fill="#7ecdc7" opacity="0.8" class="avatar-code-1"/>
+                            <rect x="56" y="212" width="44" height="4" rx="2" fill="#d4b896" opacity="0.7" class="avatar-code-2"/>
+                            <rect x="56" y="222" width="72" height="4" rx="2" fill="#7ecdc7" opacity="0.6" class="avatar-code-3"/>
+                            <rect x="56" y="232" width="36" height="4" rx="2" fill="#d4b896" opacity="0.7" class="avatar-code-4"/>
+                            <!-- Cursor blink -->
+                            <rect x="100" y="232" width="3" height="10" rx="1" fill="#7ecdc7" class="avatar-cursor"/>
+                        </svg>
+                    </div>
+                    <div class="orbit-badge ob-1" title="Python"><i class="fa-brands fa-python"></i></div>
+                    <div class="orbit-badge ob-2" title="Machine Learning"><i class="fa-solid fa-brain"></i></div>
+                    <div class="orbit-badge ob-3" title="Cloud & Data"><i class="fa-solid fa-cloud"></i></div>
+                    <div class="orbit-badge ob-4" title="SQL / ETL"><i class="fa-solid fa-database"></i></div>
+                    <div class="orbit-badge ob-5" title="GenAI"><i class="fa-solid fa-robot"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-item">
+                <div><span class="stat-number" data-count="4">0</span><span class="stat-suffix">+</span></div>
+                <p class="stat-label">Years Experience</p>
+            </div>
+            <div class="stat-item">
+                <div><span class="stat-number" data-count="5">0</span><span class="stat-suffix">+</span></div>
+                <p class="stat-label">Projects Built</p>
+            </div>
+            <div class="stat-item">
+                <div><span class="stat-number" data-count="45">0</span><span class="stat-suffix">K</span></div>
+                <p class="stat-label">Cost Saved (USD)</p>
+            </div>
+            <div class="stat-item">
+                <div><span class="stat-number" data-count="3">0</span><span class="stat-suffix">+</span></div>
+                <p class="stat-label">Certifications</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section">
+        <div class="section-header">
+            <h2 class="section-title"><span class="title-accent">About</span> Me</h2>
+            <p class="section-subtitle">The story behind the data</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <p class="about-para">I'm a <strong>Data Scientist & AI Engineer</strong> with 4+ years of experience turning complex data into intelligent, production-ready systems. My journey started in software development, evolved through data engineering at GAVS Technology, and now spans the full spectrum from building ETL pipelines to architecting RAG-powered AI systems.</p>
+                <p class="about-para">I'm currently pursuing my Master's at the <strong>University of Central Missouri</strong> while interning at IAPP on AI governance frameworks and building AI-driven customer support systems at Saayam For All. I'm also a proud open-source contributor to <strong>IBM's BeeAI Framework</strong> — one of the leading AI agents platforms.</p>
+                <p class="about-para">What drives me is the intersection of <strong>data engineering and AI</strong> — building the infrastructure that makes intelligent applications possible, then using that foundation to deploy models that actually solve real problems. I care deeply about responsible AI and reducing LLM hallucinations in production.</p>
+                <div class="about-highlights">
+                    <div class="about-highlight-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>M.S. Data Science &amp; AI · UCM</span>
+                    </div>
+                    <div class="about-highlight-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Remote / Open to Relocation</span>
+                    </div>
+                    <div class="about-highlight-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span>IAPP Certified AI Governance Professional</span>
+                    </div>
+                    <div class="about-highlight-item">
+                        <i class="fa-brands fa-github"></i>
+                        <span>IBM BeeAI Open Source Contributor</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-values reveal">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h4>AI-First Thinking</h4>
+                    <p>I approach every data problem by asking how AI can make the solution smarter, faster, and more scalable.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4>Responsible AI</h4>
+                    <p>AIGP-certified — I build with governance, safety, and ethics as first-class requirements, not afterthoughts.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h4>End-to-End Ownership</h4>
+                    <p>From raw data ingestion to deployed model — I own the full pipeline and care about production reliability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section skills-section">
+        <div class="section-header">
+            <h2 class="section-title"><span class="title-accent">Skills</span> &amp; Technologies</h2>
+            <p class="section-subtitle">Technologies I work with</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category reveal">
+                <h3 class="skill-cat-title"><i class="fa-solid fa-code"></i> Programming</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML / CSS</span>
+                    <span class="skill-tag">Bash</span>
+                </div>
+            </div>
+            <div class="skill-category reveal">
+                <h3 class="skill-cat-title"><i class="fa-solid fa-database"></i> Data Engineering</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">ETL Pipelines</span>
+                    <span class="skill-tag">Apache Spark</span>
+                    <span class="skill-tag">Databricks</span>
+                    <span class="skill-tag">BigQuery</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">ERP Systems</span>
+                </div>
+            </div>
+            <div class="skill-category reveal">
+                <h3 class="skill-cat-title"><i class="fa-solid fa-robot"></i> AI / ML</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">LLMs</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Data Science</span>
+                    <span class="skill-tag">AI Governance</span>
+                </div>
+            </div>
+            <div class="skill-category reveal">
+                <h3 class="skill-cat-title"><i class="fa-solid fa-wrench"></i> Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section experience-section">
+        <div class="section-header">
+            <h2 class="section-title"><span class="title-accent">Work</span> Experience</h2>
+            <p class="section-subtitle">My professional journey</p>
+        </div>
+        <div class="timeline">
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">Data Scientist &amp; AI Engineer</h3>
+                            <p class="timeline-company"><i class="fa-solid fa-hands-helping"></i> Saayam For All</p>
+                        </div>
+                        <span class="timeline-badge">Current</span>
+                    </div>
+                    <p class="timeline-date"><i class="fa-regular fa-calendar"></i> Oct 2025 – Present · Remote</p>
+                    <ul class="timeline-list">
+                        <li>Architected a production-grade RAG pipeline to deliver accurate, low-latency AI responses for customer support, significantly reducing LLM hallucinations</li>
+                        <li>Built end-to-end ETL pipelines to ingest, clean, and index knowledge-base data into a vector store for real-time retrieval</li>
+                        <li>Developed an AI-powered chatbot that handles user queries with context-aware responses, cutting average resolution time and improving support quality</li>
+                        <li>Implemented IAM-based access controls and secure data handling practices across the AI infrastructure</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="tag">RAG</span>
+                        <span class="tag">LLM</span>
+                        <span class="tag">ETL</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">IAM</span>
+                        <span class="tag">Chatbot</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">Data Science &amp; AI Governance Intern</h3>
+                            <p class="timeline-company"><i class="fa-solid fa-building"></i> IAPP</p>
+                        </div>
+                        <span class="timeline-badge">Current</span>
+                    </div>
+                    <p class="timeline-date"><i class="fa-regular fa-calendar"></i> May 2025 – Present</p>
+                    <ul class="timeline-list">
+                        <li>Design and integration of AI governance frameworks</li>
+                        <li>Responsible AI development aligned with ethical principles</li>
+                        <li>Econometric data analysis and statistical methods</li>
+                        <li>Insights visualized via Power BI dashboards</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="tag">AI Governance</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Statistics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">Research Assistant</h3>
+                            <p class="timeline-company"><i class="fa-solid fa-building-columns"></i> University of Central Missouri</p>
+                        </div>
+                        <span class="timeline-badge">Current</span>
+                    </div>
+                    <p class="timeline-date"><i class="fa-regular fa-calendar"></i> Jan 2025 – Present</p>
+                    <ul class="timeline-list">
+                        <li>Heartbeat classification using ML, LLMs, and Deep Learning</li>
+                        <li>Data processing, model training, and performance evaluation</li>
+                        <li>Research on disease detection via smart health data</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="tag">ML</span>
+                        <span class="tag">LLMs</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">Healthcare AI</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">Data Engineer</h3>
+                            <p class="timeline-company"><i class="fa-solid fa-building"></i> GAVS Technology Pvt Ltd</p>
+                        </div>
+                    </div>
+                    <p class="timeline-date"><i class="fa-regular fa-calendar"></i> Aug 2021 – Dec 2023</p>
+                    <ul class="timeline-list">
+                        <li>Optimized GCP and ERP systems — saved <strong>$45,000/year</strong></li>
+                        <li>Built ETL pipelines using Python &amp; SQL</li>
+                        <li>Cut server storage by 15–20% via smart visualizations</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="tag">GCP</span>
+                        <span class="tag">ETL</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">Software Developer Intern</h3>
+                            <p class="timeline-company"><i class="fa-solid fa-laptop-code"></i> Tensile Tech</p>
+                        </div>
+                    </div>
+                    <p class="timeline-date"><i class="fa-regular fa-calendar"></i> May 2021 – Aug 2021</p>
+                    <ul class="timeline-list">
+                        <li>Frontend development and database integration</li>
+                        <li>Enhanced UX with HTML/CSS improvements (15% gain)</li>
+                        <li>Improved version control; reduced data errors by 40%</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Database</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section education-section">
+        <div class="section-header">
+            <h2 class="section-title"><span class="title-accent">Education</span></h2>
+            <p class="section-subtitle">Academic background</p>
+        </div>
+        <div class="education-list">
+
+            <div class="edu-card reveal">
+                <div class="edu-header" onclick="toggleEdu(this)">
+                    <div class="edu-logo-info">
+                        <img src="Images/ucmo logo.jpg" alt="UCMO" class="edu-logo">
+                        <div>
+                            <h3 class="edu-degree">Master's in Data Science &amp; AI</h3>
+                            <p class="edu-school">University of Central Missouri, Lee's Summit, USA</p>
+                            <p class="edu-date">January 2024 – December 2025</p>
+                        </div>
+                    </div>
+                    <button class="edu-toggle-btn" aria-label="Toggle details">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="edu-body">
+                    <div class="edu-body-inner">
+                        <p>Advanced studies in Data Science and Artificial Intelligence, focusing on machine learning, deep learning, and data analytics.</p>
+                        <p><strong>Research Assistant:</strong> Heartbeat classification using ML, LLMs (Llama), and deep learning — assisting in data processing, model training, and evaluation for disease detection.</p>
+                        <div class="edu-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">AI Research</span>
+                            <span class="tag">Data Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="edu-card reveal">
+                <div class="edu-header" onclick="toggleEdu(this)">
+                    <div class="edu-logo-info">
+                        <img src="Images/gtu logo.png" alt="GTU" class="edu-logo">
+                        <div>
+                            <h3 class="edu-degree">Bachelor of Engineering — Mechanical</h3>
+                            <p class="edu-school">Gujarat Technological University</p>
+                            <p class="edu-date">2017 – 2021</p>
+                        </div>
+                    </div>
+                    <button class="edu-toggle-btn" aria-label="Toggle details">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="edu-body">
+                    <div class="edu-body-inner">
+                        <p>Completed Bachelor's in Mechanical Engineering with focus on design, thermodynamics, and manufacturing processes. Transitioned into the data &amp; software field post-graduation.</p>
+                        <div class="edu-tags">
+                            <span class="tag">Engineering</span>
+                            <span class="tag">Thermodynamics</span>
+                            <span class="tag">Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects-section">
+        <div class="section-header">
+            <h2 class="section-title"><span class="title-accent">Projects</span></h2>
+            <p class="section-subtitle">Things I've built</p>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-th-large"></i> All</button>
+            <button class="filter-btn" data-filter="ml"><i class="fa-solid fa-brain"></i> ML / AI</button>
+            <button class="filter-btn" data-filter="sql"><i class="fa-solid fa-database"></i> SQL</button>
+            <button class="filter-btn" data-filter="excel"><i class="fa-solid fa-table"></i> Excel</button>
+        </div>
+
+        <div class="projects-grid">
+
+            <div class="project-card reveal" data-category="sql">
+                <div class="project-img">
+                    <img src="Images/Netflix image.png" alt="Netflix Data Analysis">
+                    <div class="project-overlay">
+                        <a href="https://github.com/yatishdurga/Netflix-Data-Analysis-Project" target="_blank" class="overlay-btn">
+                            <i class="fa-brands fa-github"></i> View Code
+                        </a>
+                    </div>
+                    <span class="project-cat-badge">SQL</span>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Netflix Data Analysis</h3>
+                    <p class="project-desc">Trends in movies, TV shows, regional content, and genre popularity using advanced SQL queries.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Visualization</span>
+                    </div>
+                    <a href="https://github.com/yatishdurga/Netflix-Data-Analysis-Project" target="_blank" class="project-link-btn">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="ml">
+                <div class="project-img">
+                    <img src="Images/AI Assistant Mental Health.png" alt="Mental Health AI">
+                    <div class="project-overlay">
+                        <a href="https://github.com/yatishdurga/MentalHealthSolver" target="_blank" class="overlay-btn">
+                            <i class="fa-brands fa-github"></i> View Code
+                        </a>
+                    </div>
+                    <span class="project-cat-badge">ML</span>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Mental Health AI Assistant</h3>
+                    <p class="project-desc">Personalized mental health support with AI-curated books, videos, and motivational content.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">AI</span>
+                    </div>
+                    <a href="https://github.com/yatishdurga/MentalHealthSolver" target="_blank" class="project-link-btn">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="ml">
+                <div class="project-img">
+                    <img src="Images/movie recommendations .jpeg" alt="Movie Recommendation">
+                    <div class="project-overlay">
+                        <a href="https://github.com/yatishdurga/Movie_Recommendation_System_Using_Machine_Learning.ipynb" target="_blank" class="overlay-btn">
+                            <i class="fa-brands fa-github"></i> View Code
+                        </a>
+                    </div>
+                    <span class="project-cat-badge">ML</span>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Movie Recommendation System</h3>
+                    <p class="project-desc">ML-powered engine that suggests movies based on user preferences and viewing history.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">ML</span>
+                    </div>
+                    <a href="https://github.com/yatishdurga/Movie_Recommendation_System_Using_Machine_Learning.ipynb" target="_blank" class="project-link-btn">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="ml">
+                <div class="project-img">
+                    <img src="Images/Bike rental Linear regression.png" alt="Bike Rental">
+                    <div class="project-overlay">
+                        <a href="https://github.com/yatishdurga/Machine-learning/blob/main/05_02b.ipynb" target="_blank" class="overlay-btn">
+                            <i class="fa-brands fa-github"></i> View Code
+                        </a>
+                    </div>
+                    <span class="project-cat-badge">ML</span>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Bike Rental Prediction</h3>
+                    <p class="project-desc">Predicting bike rental demand based on weather, temperature, and seasonal factors via regression.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Regression</span>
+                        <span class="tech-tag">EDA</span>
+                    </div>
+                    <a href="https://github.com/yatishdurga/Machine-learning/blob/main/05_02b.ipynb" target="_blank" class="project-link-btn">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card reveal" data-category="excel">
+                <div class="project-img">
+                    <img src="https://img.freepik.com/free-vector/business-data-analysis-visualization-dashboard_24172-3.jpg" alt="Sales Dashboard">
+                    <div class="project-overlay">
+                        <a href="#" class="overlay-btn">
+                            <i class="fa-brands fa-github"></i> View Code
+                        </a>
+                    </div>
+                    <span class="project-cat-badge">Excel</span>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Sales Dashboard (Excel)</h3>
+                    <p class="project-desc">Interactive dashboard with pivot tables, charts, and KPI visualizations for business insights.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Excel</span>
+                        <span class="tech-tag">Pivot Tables</span>
+                        <span class="tech-tag">KPIs</span>
+                    </div>
+                    <a href="#" class="project-link-btn">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="section certifications-section">
+        <div class="section-header">
+            <h2 class="section-title"><span class="title-accent">Certifications</span></h2>
+            <p class="section-subtitle">Professional credentials</p>
+        </div>
+        <div class="cert-grid">
+
+            <div class="cert-card reveal">
+                <div class="cert-logo-wrap cert-logo-iapp">
+                    <div class="cert-logo-icon-wrap">
+                        <span class="cert-logo-text-badge">AIGP</span>
+                        <span class="cert-logo-sub">iapp</span>
+                    </div>
+                </div>
+                <div class="cert-info">
+                    <h3 class="cert-name">AI Governance Professional <span class="cert-badge-new">AIGP</span></h3>
+                    <p class="cert-desc">Certified by IAPP in responsible AI governance standards and practices — credential valid Dec 2025 – Dec 2027.</p>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7406694675098591232/" target="_blank" class="cert-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="cert-card reveal">
+                <div class="cert-logo-wrap">
+                    <img src="Images/Databricks .png" alt="Databricks" class="cert-logo">
+                </div>
+                <div class="cert-info">
+                    <h3 class="cert-name">Databricks Fundamentals</h3>
+                    <p class="cert-desc">Unified data analytics platform combining data engineering, science, and ML on a collaborative workspace.</p>
+                    <a href="#" target="_blank" class="cert-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="cert-card reveal">
+                <div class="cert-logo-wrap">
+                    <img src="Images/Google Big query.png" alt="BigQuery" class="cert-logo">
+                </div>
+                <div class="cert-info">
+                    <h3 class="cert-name">Google BigQuery</h3>
+                    <p class="cert-desc">Derive insights from massive datasets using Google's serverless, highly scalable cloud data warehouse.</p>
+                    <a href="https://www.cloudskillsboost.google/public_profiles/0121b85d-b0a3-42a3-9c81-abfa10156531/badges/10116335" target="_blank" class="cert-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BLOGS -->
+    <section id="blogs" class="section blogs-section">
+        <div class="section-header">
+            <h2 class="section-title"><span class="title-accent">Medium</span> Blogs</h2>
+            <p class="section-subtitle">Thoughts &amp; insights</p>
+        </div>
+        <div class="blog-grid">
+
+            <div class="blog-card reveal">
+                <div class="blog-img-wrap">
+                    <img src="Images/Blog1.png" alt="Prompt Engineering" class="blog-img">
+                    <div class="blog-overlay"></div>
+                </div>
+                <div class="blog-info">
+                    <span class="blog-tag">AI</span>
+                    <h3 class="blog-title">What is Prompt Engineering?</h3>
+                    <p class="blog-excerpt">The practice of designing and optimizing prompts to effectively communicate with AI models for desired responses.</p>
+                    <a href="https://medium.com/@yatishdurgaappanapalli/a-game-changer-in-the-ai-era-prompt-engineering-b49014a0cc3e" target="_blank" class="blog-read-btn">
+                        Read on Medium <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="blog-card reveal">
+                <div class="blog-img-wrap">
+                    <img src="Images/movie recommendations .jpeg" alt="ML Blog" class="blog-img">
+                    <div class="blog-overlay"></div>
+                </div>
+                <div class="blog-info">
+                    <span class="blog-tag">ML</span>
+                    <h3 class="blog-title">ML Movie Recommendation System</h3>
+                    <p class="blog-excerpt">Using machine learning to predict user preferences and deliver personalized movie recommendations.</p>
+                    <a href="#" target="_blank" class="blog-read-btn">
+                        Read on Medium <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+        <div class="section-header">
+            <h2 class="section-title"><span class="title-accent">Get In</span> Touch</h2>
+            <p class="section-subtitle">Let's build something great together</p>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-card reveal">
+                    <div class="contact-icon-wrap"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:yatishdurgaappanapalli@gmail.com" class="contact-value">yatishdurgaappanapalli@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-card reveal">
+                    <div class="contact-icon-wrap"><i class="fa-brands fa-linkedin-in"></i></div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/yatish-durga-22b424197/" target="_blank" class="contact-value">View Profile →</a>
+                    </div>
+                </div>
+                <div class="contact-card reveal">
+                    <div class="contact-icon-wrap"><i class="fa-brands fa-github"></i></div>
+                    <div class="contact-details">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/yatishdurga" target="_blank" class="contact-value">@yatishdurga →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrap reveal">
+                <form class="contact-form" action="https://formspree.io/f/xeojvzky" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="name" placeholder="Your Name" required class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" placeholder="your@email.com" required class="form-input">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" name="subject" placeholder="Job opportunity / Collaboration / Other" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea name="message" placeholder="Tell me about the role or what you'd like to discuss..." rows="5" required class="form-textarea"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Send Message
+                    </button>
+                    <p class="form-note">Or email me directly at <a href="mailto:yatishdurgaappanapalli@gmail.com">yatishdurgaappanapalli@gmail.com</a></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ LEARNING ═══ -->
+    <section id="learning" class="section learning-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Learning <span class="title-accent">Journal</span></h2>
+            <p class="section-subtitle">Daily notes, interview prep & research — updated regularly</p>
+        </div>
+
+        <!-- Tab bar -->
+        <div class="learn-tabs">
+            <button class="learn-tab active" data-tab="daily">
+                <i class="fa-solid fa-calendar-days"></i> Daily Log
+            </button>
+            <button class="learn-tab" data-tab="interview">
+                <i class="fa-solid fa-circle-question"></i> Interview Q&amp;A
+            </button>
+            <button class="learn-tab" data-tab="research">
+                <i class="fa-solid fa-microscope"></i> Research
+            </button>
+        </div>
+
+        <!-- Panels — populated by JS -->
+        <div class="learn-panel active" id="panel-daily">
+            <div class="learn-cards" id="daily-cards"></div>
+        </div>
+        <div class="learn-panel" id="panel-interview">
+            <div id="interview-cards"></div>
+        </div>
+        <div class="learn-panel" id="panel-research">
+            <div class="learn-cards" id="research-cards"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Designed &amp; Built by <span class="footer-name">Yatish Durga</span> &bull; 2026</p>
+    </footer>
+
+</main>
+
+<!-- Back to Top -->
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="data/learnings.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

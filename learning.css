@@ -1,0 +1,634 @@
+/* ═══════════════════════════════════════════════════════════════
+   LEARNING JOURNAL — standalone page styles
+   Inherits: styles.css (sidebar, fonts, CSS vars, cursor)
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Page layout ── */
+.lj-body { background: var(--bg-dark); }
+
+.lj-main {
+    margin-left: 220px;
+    min-height: 100vh;
+    padding: 3rem 3rem 4rem;
+    max-width: 1300px;
+}
+
+/* ── Page header ── */
+.lj-page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+.lj-page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    line-height: 1.15;
+}
+.lj-page-sub { color: var(--text-secondary); font-size: 0.95rem; }
+
+.lj-add-btn {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    background: var(--gradient-btn);
+    color: #1c4a48; font-weight: 700; font-size: 0.92rem;
+    border: none; border-radius: 12px; cursor: pointer;
+    box-shadow: 0 4px 18px rgba(126,205,199,0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+    font-family: var(--font);
+}
+.lj-add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(126,205,199,0.35);
+}
+
+/* ── Toolbar ── */
+.lj-toolbar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+.lj-search-wrap {
+    position: relative;
+    flex: 0 0 280px;
+}
+.lj-search-icon {
+    position: absolute; left: 0.85rem; top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted); font-size: 0.85rem;
+    pointer-events: none;
+}
+.lj-search {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    padding: 0.6rem 0.9rem 0.6rem 2.4rem;
+    color: var(--white); font-family: var(--font); font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+.lj-search::placeholder { color: var(--text-muted); }
+.lj-search:focus { border-color: rgba(126,205,199,0.5); background: rgba(255,255,255,0.09); }
+
+.lj-filters {
+    display: flex; gap: 0.4rem; flex-wrap: wrap;
+}
+.lj-filter {
+    display: flex; align-items: center; gap: 0.4rem;
+    padding: 0.5rem 1.1rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    color: var(--text-secondary); font-family: var(--font); font-size: 0.82rem; font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+.lj-filter:hover { border-color: rgba(126,205,199,0.4); color: var(--white); }
+.lj-filter.active {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.35);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.lj-count {
+    color: var(--text-muted); font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.03em;
+}
+
+/* ══════════════════════════════════════════
+   CARDS GRID
+══════════════════════════════════════════ */
+.lj-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+}
+
+/* ── Skeleton loading ── */
+.lj-skeleton-wrap { display: contents; }
+.lj-skeleton {
+    border-radius: 18px;
+    height: 300px;
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0.04) 25%,
+        rgba(255,255,255,0.08) 50%,
+        rgba(255,255,255,0.04) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Entry card ── */
+.lj-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 300px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(.22,.68,0,1.2), box-shadow 0.3s;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+}
+.lj-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+}
+
+/* Gradient background — atmospheric layers */
+.lj-card-bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 0.5s ease;
+}
+.lj-card:hover .lj-card-bg { transform: scale(1.05); }
+
+/* Per-category gradients */
+.lj-card[data-cat="daily-log"]   .lj-card-bg { background-image: linear-gradient(160deg, #061828 0%, #0d3d5a 45%, #1a6070 75%, #0a2a40 100%); }
+.lj-card[data-cat="interview-qa"] .lj-card-bg { background-image: linear-gradient(160deg, #1a1008 0%, #4a2c0a 45%, #6e4a18 75%, #3a2010 100%); }
+.lj-card[data-cat="research"]    .lj-card-bg { background-image: linear-gradient(160deg, #120820 0%, #2d0d4a 45%, #4a1a6e 75%, #280a40 100%); }
+
+/* Radial glow accent on each card */
+.lj-card-glow {
+    position: absolute; inset: 0; pointer-events: none;
+}
+.lj-card[data-cat="daily-log"]    .lj-card-glow { background: radial-gradient(ellipse at 25% 15%, rgba(126,205,199,0.3) 0%, transparent 65%); }
+.lj-card[data-cat="interview-qa"] .lj-card-glow { background: radial-gradient(ellipse at 25% 15%, rgba(212,184,150,0.35) 0%, transparent 65%); }
+.lj-card[data-cat="research"]     .lj-card-glow { background: radial-gradient(ellipse at 25% 15%, rgba(167,139,250,0.3) 0%, transparent 65%); }
+
+/* Grain texture overlay */
+.lj-card-grain {
+    position: absolute; inset: 0; pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 180px;
+}
+
+/* Bottom gradient overlay (text readability) */
+.lj-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.05) 40%,
+        rgba(0,0,0,0.6) 75%,
+        rgba(0,0,0,0.85) 100%
+    );
+}
+
+/* Card content */
+.lj-card-content {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 1.2rem 1.3rem;
+}
+
+.lj-card-top {
+    display: flex; align-items: flex-start; justify-content: space-between;
+}
+
+.lj-card-type {
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    padding: 0.3rem 0.7rem; border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.lj-card[data-cat="daily-log"]    .lj-card-type { color: #7ecdc7; border-color: rgba(126,205,199,0.3); }
+.lj-card[data-cat="interview-qa"] .lj-card-type { color: #d4b896; border-color: rgba(212,184,150,0.3); }
+.lj-card[data-cat="research"]     .lj-card-type { color: #c4b5fd; border-color: rgba(167,139,250,0.3); }
+
+.lj-card-date {
+    font-size: 0.7rem; color: rgba(255,255,255,0.55);
+    font-weight: 500;
+}
+
+.lj-card-bottom {}
+.lj-card-category {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 0.4rem;
+    color: rgba(255,255,255,0.5);
+}
+.lj-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.22rem; font-weight: 500;
+    color: #fff;
+    line-height: 1.35;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+.lj-card-tags {
+    display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.65rem;
+}
+.lj-card-tag {
+    font-size: 0.65rem; font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    padding: 0.18rem 0.5rem; border-radius: 50px;
+}
+
+/* ══════════════════════════════════════════
+   SIDE DRAWER (card detail)
+══════════════════════════════════════════ */
+.lj-drawer-overlay {
+    position: fixed; inset: 0; z-index: 900;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+}
+.lj-drawer-overlay.open { opacity: 1; pointer-events: all; }
+
+.lj-drawer {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: min(480px, 100vw);
+    z-index: 901;
+    background: #0e2a2a;
+    border-left: 1px solid rgba(126,205,199,0.15);
+    box-shadow: -8px 0 40px rgba(0,0,0,0.5);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(.22,.68,0,1);
+    overflow-y: auto;
+    padding: 2rem;
+}
+.lj-drawer.open { transform: translateX(0); }
+
+.lj-drawer-close {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.08); border: none; cursor: pointer;
+    color: var(--text-secondary); font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+.lj-drawer-close:hover { background: rgba(255,255,255,0.15); color: var(--white); }
+
+/* Drawer content elements */
+.lj-drawer-content .dc-type {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 50px;
+    margin-bottom: 1rem;
+}
+.dc-type.daily-log    { background: rgba(126,205,199,0.15); color: #7ecdc7; border: 1px solid rgba(126,205,199,0.3); }
+.dc-type.interview-qa { background: rgba(212,184,150,0.15); color: #d4b896; border: 1px solid rgba(212,184,150,0.3); }
+.dc-type.research     { background: rgba(167,139,250,0.15); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.3); }
+
+.lj-drawer-content .dc-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem; font-weight: 600;
+    color: var(--white); line-height: 1.3;
+    margin-bottom: 0.6rem;
+}
+.lj-drawer-content .dc-meta {
+    display: flex; gap: 0.7rem; align-items: center; flex-wrap: wrap;
+    color: var(--text-muted); font-size: 0.78rem; margin-bottom: 1.2rem;
+}
+.lj-drawer-content .dc-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem;
+}
+.dc-tag {
+    font-size: 0.72rem; color: #7ecdc7;
+    background: rgba(126,205,199,0.1); border: 1px solid rgba(126,205,199,0.2);
+    padding: 0.2rem 0.6rem; border-radius: 50px;
+}
+.lj-drawer-content .dc-divider {
+    height: 1px; background: rgba(255,255,255,0.07); margin: 1.2rem 0;
+}
+.lj-drawer-content .dc-section-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.7rem;
+}
+.lj-drawer-content .dc-summary {
+    color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.2rem;
+}
+.lj-drawer-content .dc-points {
+    list-style: none; padding: 0; margin: 0 0 1.2rem;
+    display: flex; flex-direction: column; gap: 0.55rem;
+}
+.lj-drawer-content .dc-points li {
+    color: var(--text-secondary); font-size: 0.88rem; line-height: 1.65;
+    padding-left: 1.4rem; position: relative;
+}
+.lj-drawer-content .dc-points li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent-cyan); font-weight: 700;
+}
+.lj-drawer-content .dc-resources {
+    display: flex; flex-direction: column; gap: 0.5rem;
+}
+.dc-resource-link {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-size: 0.82rem; color: #7ecdc7; text-decoration: none;
+    padding: 0.4rem 0.9rem; border-radius: 8px;
+    background: rgba(126,205,199,0.08);
+    border: 1px solid rgba(126,205,199,0.2);
+    transition: background 0.2s;
+    width: fit-content;
+}
+.dc-resource-link:hover { background: rgba(126,205,199,0.18); }
+
+/* Q&A in drawer */
+.lj-drawer-content .dc-question {
+    font-size: 0.95rem; font-weight: 600; color: var(--white);
+    margin-bottom: 0.8rem; line-height: 1.5;
+}
+.lj-drawer-content .dc-answer {
+    color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;
+}
+
+/* Research status badge in drawer */
+.dc-status {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    padding: 0.25rem 0.8rem; border-radius: 50px; letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+.dc-status.inprogress { background: rgba(212,184,150,0.2); color: #d4a04a; border: 1px solid rgba(212,184,150,0.4); }
+.dc-status.completed  { background: rgba(126,205,199,0.15); color: #7ecdc7; border: 1px solid rgba(126,205,199,0.3); }
+
+/* GH source link */
+.dc-gh-link {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-size: 0.78rem; color: var(--text-muted); text-decoration: none;
+    margin-top: 1.5rem; transition: color 0.2s;
+}
+.dc-gh-link:hover { color: var(--text-secondary); }
+
+/* ══════════════════════════════════════════
+   MODAL
+══════════════════════════════════════════ */
+.lj-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+}
+.lj-overlay.open { opacity: 1; pointer-events: all; }
+
+.lj-modal {
+    background: #0e2a2a;
+    border: 1px solid rgba(126,205,199,0.18);
+    border-radius: 22px;
+    padding: 2.2rem 2rem;
+    width: 100%; max-width: 560px;
+    max-height: 90vh; overflow-y: auto;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    transform: translateY(20px);
+    transition: transform 0.35s cubic-bezier(.22,.68,0,1);
+}
+.lj-overlay.open .lj-modal { transform: translateY(0); }
+
+.lj-modal-close {
+    position: absolute; top: 1.1rem; right: 1.1rem;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(255,255,255,0.07); border: none; cursor: pointer;
+    color: var(--text-secondary); font-size: 0.95rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+}
+.lj-modal-close:hover { background: rgba(255,255,255,0.15); color: var(--white); }
+
+.lj-modal-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem; font-weight: 600;
+    color: var(--white); margin-bottom: 1.4rem;
+}
+
+/* Setup screen */
+.lj-setup-icon {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem; color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+.lj-setup-desc { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.4rem; }
+
+/* Form */
+.lj-type-tabs {
+    display: flex; gap: 0.4rem; margin-bottom: 1.4rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px; padding: 5px;
+}
+.lj-type-tab {
+    flex: 1; padding: 0.5rem 0.6rem;
+    background: transparent; border: none; cursor: pointer;
+    color: var(--text-secondary); font-family: var(--font); font-size: 0.8rem; font-weight: 500;
+    border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.35rem;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+.lj-type-tab:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+.lj-type-tab.active { background: rgba(255,255,255,0.12); color: var(--white); font-weight: 600; }
+
+.lj-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+
+.lj-field { margin-bottom: 1rem; }
+.lj-field label {
+    display: block; font-size: 0.8rem; font-weight: 600;
+    color: var(--text-secondary); margin-bottom: 0.4rem; letter-spacing: 0.02em;
+}
+.lj-label-hint { font-weight: 400; color: var(--text-muted); font-size: 0.75rem; }
+.lj-required { color: #d4b896; }
+
+.lj-input, .lj-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+    color: var(--white); font-family: var(--font); font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    box-sizing: border-box;
+}
+.lj-input:focus, .lj-textarea:focus {
+    border-color: rgba(126,205,199,0.5);
+    background: rgba(255,255,255,0.09);
+}
+.lj-input::placeholder, .lj-textarea::placeholder { color: rgba(255,255,255,0.2); }
+.lj-textarea { resize: vertical; line-height: 1.6; min-height: 80px; }
+select.lj-input { cursor: pointer; }
+
+/* PAT row */
+.lj-pat-wrap { position: relative; }
+.lj-pat-wrap .lj-input { padding-right: 2.5rem; }
+.lj-pat-toggle {
+    position: absolute; right: 0.7rem; top: 50%; transform: translateY(-50%);
+    background: none; border: none; cursor: pointer;
+    color: var(--text-muted); font-size: 0.85rem;
+    transition: color 0.2s;
+}
+.lj-pat-toggle:hover { color: var(--text-secondary); }
+
+.lj-token-link {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    font-size: 0.78rem; color: var(--accent-cyan); text-decoration: none;
+    margin-top: 0.5rem; transition: opacity 0.2s;
+}
+.lj-token-link:hover { opacity: 0.75; }
+
+.lj-modal-actions {
+    display: flex; gap: 0.75rem; justify-content: flex-end;
+    margin-top: 1.4rem;
+}
+.lj-btn {
+    padding: 0.65rem 1.4rem;
+    border-radius: 10px; border: none; cursor: pointer;
+    font-family: var(--font); font-size: 0.88rem; font-weight: 600;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+.lj-btn:hover { transform: translateY(-1px); }
+.lj-btn-primary { background: var(--gradient-btn); color: #1c4a48; box-shadow: 0 4px 14px rgba(126,205,199,0.25); }
+.lj-btn-primary:hover { box-shadow: 0 8px 24px rgba(126,205,199,0.35); }
+.lj-btn-ghost { background: rgba(255,255,255,0.07); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
+.lj-btn:disabled { opacity: 0.5; pointer-events: none; }
+
+.lj-submit-msg {
+    font-size: 0.84rem; margin-top: 0.8rem; text-align: center;
+    min-height: 1.4rem;
+}
+.lj-submit-msg.success { color: #7ecdc7; }
+.lj-submit-msg.error   { color: #f87171; }
+
+.lj-privacy-note {
+    font-size: 0.74rem; color: var(--text-muted); text-align: center;
+    margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;
+}
+.lj-reset-config {
+    display: block; margin: 0.8rem auto 0;
+    background: none; border: none; cursor: pointer;
+    font-size: 0.74rem; color: var(--text-muted);
+    text-decoration: underline; text-underline-offset: 3px;
+    font-family: var(--font);
+    transition: color 0.2s;
+}
+.lj-reset-config:hover { color: var(--text-secondary); }
+
+/* Empty state */
+.lj-empty {
+    grid-column: 1 / -1;
+    text-align: center; padding: 4rem 1rem;
+    color: var(--text-muted);
+}
+.lj-empty i { font-size: 2.5rem; margin-bottom: 1rem; display: block; opacity: 0.4; }
+.lj-empty p { font-size: 0.9rem; line-height: 1.7; }
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+    .lj-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+    .lj-main { margin-left: 0; padding: 5rem 1.4rem 3rem; }
+    .lj-grid { grid-template-columns: repeat(2, 1fr); }
+    .lj-toolbar { flex-direction: column; align-items: flex-start; }
+    .lj-search-wrap { flex: none; width: 100%; }
+}
+@media (max-width: 560px) {
+    .lj-grid { grid-template-columns: 1fr; }
+    .lj-type-tabs { flex-wrap: wrap; }
+    .lj-form-row { grid-template-columns: 1fr; }
+    .lj-modal { padding: 1.6rem 1.2rem; }
+    .lj-drawer { padding: 1.4rem; }
+    .lj-page-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* ══════════════════════════════════════════
+   DELETE BUTTON (owner-only, PAT-gated)
+══════════════════════════════════════════ */
+.lj-card .lj-delete-btn {
+    position: absolute;
+    top: 0.65rem; right: 0.65rem;
+    z-index: 10;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.35);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.75rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.2s, transform 0.2s, background 0.2s, color 0.2s;
+    backdrop-filter: blur(6px);
+}
+.lj-card:hover .lj-delete-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+.lj-delete-btn:hover {
+    background: rgba(239,68,68,0.75) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+
+/* Confirm toast */
+.lj-delete-toast {
+    position: fixed;
+    bottom: 2rem; left: 50%; transform: translateX(-50%);
+    z-index: 2000;
+    background: #1a0a0a;
+    border: 1px solid rgba(239,68,68,0.4);
+    border-radius: 14px;
+    padding: 1rem 1.4rem;
+    display: flex; align-items: center; gap: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    color: #f5f0e8; font-size: 0.88rem;
+    min-width: 280px;
+    animation: toastIn 0.3s cubic-bezier(.22,.68,0,1);
+}
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+.lj-delete-toast-actions { display: flex; gap: 0.5rem; margin-left: auto; }
+.lj-toast-confirm {
+    padding: 0.35rem 0.9rem; border-radius: 8px; border: none; cursor: pointer;
+    background: #ef4444; color: #fff; font-size: 0.8rem; font-weight: 600;
+    font-family: var(--font);
+    transition: background 0.2s;
+}
+.lj-toast-confirm:hover { background: #dc2626; }
+.lj-toast-cancel {
+    padding: 0.35rem 0.9rem; border-radius: 8px; border: none; cursor: pointer;
+    background: rgba(255,255,255,0.08); color: #ccc; font-size: 0.8rem;
+    font-family: var(--font);
+    transition: background 0.2s;
+}
+.lj-toast-cancel:hover { background: rgba(255,255,255,0.15); }
+
+/* Owner mode indicator */
+.lj-owner-badge {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+    color: #ff7a3d;
+    background: rgba(255,122,61,0.1);
+    border: 1px solid rgba(255,122,61,0.3);
+    padding: 0.2rem 0.65rem; border-radius: 50px;
+    margin-left: 0.75rem;
+    vertical-align: middle;
+}
+.lj-owner-badge i { font-size: 0.65rem; }

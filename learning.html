@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Journal | Yatish Durga</title>
+    <meta name="description" content="Daily learning notes, interview Q&A, and research by Yatish Durga — Data Scientist & AI Engineer.">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230ea5e9'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='13' font-weight='900' font-family='system-ui,sans-serif'>YD</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="learning.css">
+</head>
+<body class="lj-body">
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-profile">
+        <div class="sidebar-initials">YD</div>
+        <h2 class="sidebar-name">Yatish Durga</h2>
+        <p class="sidebar-title">Data Scientist</p>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html#home"           class="nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+        <li><a href="learning.html"             class="nav-link nav-link-learning active"><i class="fa-solid fa-fire"></i><span>Learning</span><span class="nav-live-dot"></span></a></li>
+        <li><a href="index.html#about"          class="nav-link"><i class="fa-solid fa-user"></i><span>About</span></a></li>
+        <li><a href="index.html#skills"         class="nav-link"><i class="fa-solid fa-code"></i><span>Skills</span></a></li>
+        <li><a href="index.html#experience"     class="nav-link"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a></li>
+        <li><a href="index.html#education"      class="nav-link"><i class="fa-solid fa-graduation-cap"></i><span>Education</span></a></li>
+        <li><a href="index.html#projects"       class="nav-link"><i class="fa-solid fa-diagram-project"></i><span>Projects</span></a></li>
+        <li><a href="index.html#certifications" class="nav-link"><i class="fa-solid fa-certificate"></i><span>Certifications</span></a></li>
+        <li><a href="index.html#blogs"          class="nav-link"><i class="fa-brands fa-medium"></i><span>Blogs</span></a></li>
+        <li><a href="index.html#contact"        class="nav-link"><i class="fa-solid fa-envelope"></i><span>Contact</span></a></li>
+    </ul>
+    <div class="sidebar-socials">
+        <a href="https://www.linkedin.com/in/yatish-durga-22b424197/" target="_blank" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/yatishdurga" target="_blank" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:yatishdurgaappanapalli@gmail.com" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</nav>
+
+<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+</button>
+
+<main class="lj-main">
+
+    <!-- Page header -->
+    <div class="lj-page-header">
+        <div class="lj-header-text">
+            <h1 class="lj-page-title">Learning <span class="title-accent">Journal</span></h1>
+            <p class="lj-page-sub">Daily notes, interview prep & research — updated regularly</p>
+        </div>
+        <button class="lj-add-btn" id="new-entry-btn">
+            <i class="fa-solid fa-plus"></i> New Entry
+        </button>
+    </div>
+
+    <!-- Search + filter row -->
+    <div class="lj-toolbar">
+        <div class="lj-search-wrap">
+            <i class="fa-solid fa-magnifying-glass lj-search-icon"></i>
+            <input type="search" id="lj-search" class="lj-search" placeholder="Search topics, tags…">
+        </div>
+        <div class="lj-filters" id="lj-filters">
+            <button class="lj-filter active" data-cat="all">All</button>
+            <button class="lj-filter" data-cat="daily-log"><i class="fa-solid fa-calendar-days"></i> Daily Log</button>
+            <button class="lj-filter" data-cat="interview-qa"><i class="fa-solid fa-circle-question"></i> Interview Q&amp;A</button>
+            <button class="lj-filter" data-cat="research"><i class="fa-solid fa-microscope"></i> Research</button>
+        </div>
+    </div>
+
+    <!-- Entry count -->
+    <div class="lj-count" id="lj-count"></div>
+
+    <!-- Cards grid -->
+    <div class="lj-grid" id="lj-grid">
+        <div class="lj-skeleton-wrap">
+            <div class="lj-skeleton"></div>
+            <div class="lj-skeleton"></div>
+            <div class="lj-skeleton"></div>
+            <div class="lj-skeleton"></div>
+            <div class="lj-skeleton"></div>
+            <div class="lj-skeleton"></div>
+        </div>
+    </div>
+
+</main>
+
+<!-- ══ ADD ENTRY MODAL ══ -->
+<div class="lj-overlay" id="lj-overlay">
+    <div class="lj-modal" id="lj-modal">
+        <button class="lj-modal-close" id="modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+
+        <!-- Step 1: GitHub Setup (shown first time) -->
+        <div id="setup-step" class="lj-step">
+            <div class="lj-setup-icon"><i class="fa-brands fa-github"></i></div>
+            <h2 class="lj-modal-title">Connect GitHub</h2>
+            <p class="lj-setup-desc">Entries are stored as GitHub Issues on your repo — no backend needed. You only do this once.</p>
+            <div class="lj-field">
+                <label>GitHub Username</label>
+                <input type="text" id="gh-owner" class="lj-input" placeholder="yatishdurga">
+            </div>
+            <div class="lj-field">
+                <label>Repository Name</label>
+                <input type="text" id="gh-repo" class="lj-input" placeholder="Portfolio-main">
+            </div>
+            <div class="lj-field">
+                <label>Personal Access Token <span class="lj-label-hint">(Issues: read + write)</span></label>
+                <div class="lj-pat-wrap">
+                    <input type="password" id="gh-pat" class="lj-input" placeholder="ghp_…">
+                    <button class="lj-pat-toggle" id="pat-toggle" type="button"><i class="fa-solid fa-eye"></i></button>
+                </div>
+                <a class="lj-token-link" href="https://github.com/settings/tokens/new?description=Portfolio+Learning+Journal&scopes=public_repo" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Create a token on GitHub →
+                </a>
+            </div>
+            <div class="lj-modal-actions">
+                <button class="lj-btn lj-btn-primary" id="save-config-btn">Save & Continue <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <p class="lj-privacy-note"><i class="fa-solid fa-lock"></i> Token stored only in your browser's localStorage — never sent anywhere except GitHub's API.</p>
+        </div>
+
+        <!-- Step 2: Entry form -->
+        <div id="form-step" class="lj-step" style="display:none">
+            <h2 class="lj-modal-title">New Learning Entry</h2>
+
+            <!-- Type selector -->
+            <div class="lj-type-tabs">
+                <button class="lj-type-tab active" data-type="daily-log"><i class="fa-solid fa-calendar-days"></i> Daily Log</button>
+                <button class="lj-type-tab" data-type="interview-qa"><i class="fa-solid fa-circle-question"></i> Interview Q&A</button>
+                <button class="lj-type-tab" data-type="research"><i class="fa-solid fa-microscope"></i> Research</button>
+            </div>
+
+            <div class="lj-form" id="entry-form">
+                <!-- Common fields -->
+                <div class="lj-field">
+                    <label>Topic / Title <span class="lj-required">*</span></label>
+                    <input type="text" id="f-title" class="lj-input" placeholder="e.g. QLoRA — Quantized Low-Rank Adaptation">
+                </div>
+                <div class="lj-form-row">
+                    <div class="lj-field">
+                        <label>Category</label>
+                        <input type="text" id="f-category" class="lj-input" placeholder="LLMs, SQL, Agents…">
+                    </div>
+                    <div class="lj-field">
+                        <label>Tags <span class="lj-label-hint">(comma separated)</span></label>
+                        <input type="text" id="f-tags" class="lj-input" placeholder="qlora, fine-tuning, llm">
+                    </div>
+                </div>
+
+                <!-- Daily Log fields -->
+                <div class="lj-type-fields" data-for="daily-log">
+                    <div class="lj-field">
+                        <label>Summary <span class="lj-required">*</span></label>
+                        <textarea id="f-summary" class="lj-textarea" rows="3" placeholder="Brief overview of what you learned today…"></textarea>
+                    </div>
+                    <div class="lj-field">
+                        <label>Key Points <span class="lj-label-hint">(one per line)</span></label>
+                        <textarea id="f-keypoints" class="lj-textarea" rows="4" placeholder="Key insight 1&#10;Key insight 2&#10;Key insight 3"></textarea>
+                    </div>
+                    <div class="lj-field">
+                        <label>Resources <span class="lj-label-hint">(optional — Label | URL, one per line)</span></label>
+                        <textarea id="f-resources" class="lj-textarea" rows="2" placeholder="QLoRA Paper | https://arxiv.org/abs/2305.14314"></textarea>
+                    </div>
+                </div>
+
+                <!-- Interview Q&A fields -->
+                <div class="lj-type-fields" data-for="interview-qa" style="display:none">
+                    <div class="lj-field">
+                        <label>Question <span class="lj-required">*</span></label>
+                        <input type="text" id="f-question" class="lj-input" placeholder="e.g. What is the bias-variance tradeoff?">
+                    </div>
+                    <div class="lj-field">
+                        <label>Answer <span class="lj-required">*</span></label>
+                        <textarea id="f-answer" class="lj-textarea" rows="5" placeholder="Your detailed answer…"></textarea>
+                    </div>
+                </div>
+
+                <!-- Research fields -->
+                <div class="lj-type-fields" data-for="research" style="display:none">
+                    <div class="lj-field">
+                        <label>Abstract / Overview <span class="lj-required">*</span></label>
+                        <textarea id="f-abstract" class="lj-textarea" rows="3" placeholder="What are you researching and why?"></textarea>
+                    </div>
+                    <div class="lj-field">
+                        <label>Key Findings <span class="lj-label-hint">(one per line)</span></label>
+                        <textarea id="f-findings" class="lj-textarea" rows="4" placeholder="Finding 1&#10;Finding 2"></textarea>
+                    </div>
+                    <div class="lj-field">
+                        <label>Status</label>
+                        <select id="f-status" class="lj-input">
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="submit-msg" class="lj-submit-msg"></div>
+
+            <div class="lj-modal-actions">
+                <button class="lj-btn lj-btn-ghost" id="cancel-btn">Cancel</button>
+                <button class="lj-btn lj-btn-primary" id="submit-btn">
+                    <i class="fa-brands fa-github"></i> Save to GitHub
+                </button>
+            </div>
+
+            <button class="lj-reset-config" id="reset-config-btn">Change GitHub config</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- Card detail drawer -->
+<div class="lj-drawer-overlay" id="drawer-overlay"></div>
+<div class="lj-drawer" id="lj-drawer">
+    <button class="lj-drawer-close" id="drawer-close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="lj-drawer-content" id="drawer-content"></div>
+</div>
+
+<script src="data/learnings.js"></script>
+<script src="learning.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
